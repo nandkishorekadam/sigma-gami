@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sigma Gami AI Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8dc;
+      padding: 20px;
+    }
+    #chatbox {
+      width: 100%;
+      max-width: 500px;
+      margin: auto;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: #fefefe;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .user {
+      text-align: right;
+      color: blue;
+    }
+    .bot {
+      text-align: left;
+      color: green;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    button {
+      padding: 10px;
+      margin-left: 5px;
+      border-radius: 5px;
+      background-color: gold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Ask about Sigma Gami or Origami</h2>
+<p style="text-align:center;"><a href="index.html">← Back to Home</a></p>
+  <div id="chatbox">
+    <div class="message bot">Hi! I’m SigmaBot. Ask me anything about our company or about origami!</div>
+  </div>
+  <div style="text-align:center;">
+    <input type="text" id="userInput" placeholder="Type your question..." />
+    <button onclick="respond()">Ask</button>
+  </div>
+
+  <script>
+    const chatbox = document.getElementById('chatbox');
+
+    function addMessage(sender, text) {
+      const message = document.createElement('div');
+      message.className = 'message ' + sender;
+      message.textContent = text;
+      chatbox.appendChild(message);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function respond() {
+      const input = document.getElementById('userInput');
+      const question = input.value.toLowerCase().trim();
+      if (question === "") return;
+
+      addMessage('user', question);
+
+      let reply = "I'm not sure how to answer that. Please ask about Sigma Gami or origami.";
+
+      // Company-related
+      if (question.includes("who") && question.includes("found")) {
+        reply = "Sigma Gami was founded by Ashutosh Kadam and his talented team.";
+      } else if (question.includes("what") && question.includes("sigma gami")) {
+        reply = "Sigma Gami is a creative origami website where paper turns into magic!";
+      } else if (question.includes("buy") || question.includes("products")) {
+        reply = "Yes! You can buy our amazing origami products directly from the site.";
+      } else if (question.includes("teach") || question.includes("children")) {
+        reply = "We offer fun and easy origami to help children learn creativity and patience.";
+
+      // Origami-related
+      } else if (question.includes("what") && question.includes("origami")) {
+        reply = "Origami is the Japanese art of folding paper into decorative shapes and figures.";
+      } else if (question.includes("benefits") || question.includes("good for")) {
+        reply = "Origami helps improve concentration, creativity, and hand-eye coordination.";
+      } else if (question.includes("fun fact") || question.includes("interesting")) {
+        reply = "Fun fact: The word 'origami' comes from Japanese words 'ori' (folding) and 'kami' (paper)!";
+      }
+
+      addMessage('bot', reply);
+      input.value = "";
+    }
+  </script>
+</body>
+</html>
