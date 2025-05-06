@@ -2,11 +2,31 @@
 <html>
   <head>
   <div style="text-align:center">
-     <img src="https://png.pngtree.com/png-clipart/20250215/original/pngtree-a-4d-origami-masterpiece-of-dragon-in-matte-color-palette-png-image_19320887.png
+     <img id="logo" src="https://png.pngtree.com/png-clipart/20250215/original/pngtree-a-4d-origami-masterpiece-of-dragon-in-matte-color-palette-png-image_19320887.png
 " alt="sigma gami" width="90" height="90">
 </div>
     <title>Sigma Gami</title>
     <style>
+      #logo {
+  transition: transform 1s;
+  cursor: pointer;
+}
+
+.flip {
+  transform: rotateY(360deg);
+}
+
+      .product {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.product.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 	
       h1 {
         text-align: center;
@@ -31,6 +51,9 @@
         background-color: #f9f9f9;
         border-radius: 10px;
       }
+    
+}
+
 
     </style>
   </head>
@@ -39,11 +62,15 @@
     <!-- Navigation Links -->
     
      
-    <a href="./sigma-gami/sigmabot.html">Talk to SigmaBot</a>            
+    <a href="./sigma-gami/sigmabot.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Talk to SigmaBot</a>   
+    <a href="./sigma-gami/portfolio.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">portfolio</a>
+    
+    
+
 
     <h1>Sigma Gami</h1>
-	<a href="./sigma-gami/info.html" class="top-right-link">Info</a>
-	<a href="./sigma-gami/review.html">Leave a Review</a>
+	<a href="./sigma-gami/info.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Info</a>
+	<a href="./sigma-gami/review.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Leave a Review</a>
 
     <!-- Container to hold both products -->
     <div class="container">
@@ -52,35 +79,64 @@
       <div class="product">
         <img src="https://cdn.pixabay.com/photo/2021/12/27/14/04/paper-rocket-6897262_1280.png" alt="Origami rocket" width="150" height="150">
         <p style="font-size: 18px; color: green;"><strong>Price: ₹10</strong></p>
-        <a href="./sigma-gami/buy-page.html">Go to Buy Page</a>
+        <a href="./sigma-gami/buy-page.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Go to Buy Page</a>
       </div>
 
       <!-- Product 2: Origami Ninja Star -->
       <div class="product">
         <img src="https://www.origamiway.com/wp-content/uploads/2024/02/origami-ninja-star-final.jpg" alt="Ninja star" width="150" height="150">
         <p style="font-size: 19px; color: green;"><strong>Price: ₹15</strong></p>
-        <a href="./sigma-gami/buy-page.html">Go to Buy Page</a>
+        <a href="./sigma-gami/buy-page.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Go to Buy Page</a>
       </div>
 
       <!-- Product 3: Origami Envelope -->
       <div class="product">
         <img src="https://static.vecteezy.com/system/resources/previews/055/845/640/non_2x/brown-envelope-with-flap-for-mail-use-free-png.png" alt="Origami Envelope" width="150" height="150">
-        <p style="font-size: 19px; color: green;"><strong>Price: ₹5</strong></p>
-        <a href="./sigma-gami/buy-page.html">Go to Buy Page</a>
+        <p style="font-size: 19px; color: #008000;"><strong>Price: ₹5</strong></p>
+        <a href="./sigma-gami/buy-page.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Go to Buy Page</a>
       </div>
 
       <!-- Product 4: Origami Kunai -->
       <div class="product">
         <img src="https://content.instructables.com/F84/BULA/FNNJYPEI/F84BULAFNNJYPEI.jpg?auto=webp&frame=1&width=320&md=MjAxNC0wNS0yMyAyMTowNToxMS4w" alt="Origami Kunai" width="150" height="150">
         <p style="font-size: 19px; color: green;"><strong>Price: ₹30</strong></p>
-        <a href="./sigma-gami/buy-page.html">Go to Buy Page</a>
+        <a href="./sigma-gami/buy-page.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Go to Buy Page</a>
       </div>
   
          <div class="product">
         <img src="https://content.instructables.com/F3L/MYF1/L8VN4I0I/F3LMYF1L8VN4I0I.jpg?auto=webp" alt="ddakchi" width="150" height="150">
         <p style="font-size: 19px; color: green;"><strong>Price: ₹20</strong></p>
-        <a href="./sigma-gami/buy-page.html">Go to Buy Page</a>
+        <a href="./sigma-gami/buy-page.html"style="padding:10px 20px;background-color:blue;color:white;text-decoration:none;border-radius:8px;">Go to Buy Page</a>
       </div>
-      <a href="./sigma-gami/portfolio.html">portfolio</a>
+     
+      <script>
+        // Wait for the page to fully load
+        window.addEventListener("load", function() {
+          // Select all product cards
+          const products = document.querySelectorAll(".product");
+      
+          // Loop through and add the "show" class to each with a delay
+          products.forEach((product, index) => {
+            setTimeout(() => {
+              product.classList.add("show");
+            }, index * 200); // delay each by 200ms
+          });
+        });
+      </script>
+      <script>
+        const logo = document.getElementById("logo");
+      
+        logo.addEventListener("click", function () {
+          logo.classList.add("flip");
+      
+          // Remove the class after animation so it can flip again on next click
+          setTimeout(() => {
+            logo.classList.remove("flip");
+          }, 1000); // time should match the CSS transition time
+        });
+      </script>
+      
+</body>   
+</html>   
 
     
